@@ -41,4 +41,10 @@ namespace KnowledgeMinutes.Models
 
         public override float Weight { get; set; } = 0.5f;
     }
+
+    public enum AnimalType
+    {
+        Rept = 0,
+        Mammal = 1
+    }
 }
