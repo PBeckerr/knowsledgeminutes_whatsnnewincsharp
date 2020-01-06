@@ -27,7 +27,7 @@ namespace KnowledgeMinutes
             Console.WriteLine($"{City}: {Population}");
         }
 
-        public static void InlineOutlineVariables(string number)
+        public static void InlineOutVariables(string number)
         {
             #region old
 
