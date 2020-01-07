@@ -9,24 +9,6 @@ namespace KnowledgeMinutes
 {
     public static class CSharp70
     {
-        public static void Discards(string number)
-        {
-            if (int.TryParse(number, out _))
-            {
-                Console.WriteLine($"{number} is a valid number");
-            }
-            else
-            {
-                Console.WriteLine($"{number} is not valid number");
-            }
-
-            //we can also discard tuple stuff when deconstructions
-            var complexTuple = (City: "Dresden", State: "Sachsen", Population: 554649, Language: "german");
-            //deconstruct but i dont need most of the stuff
-            var (City, _, Population, _) = complexTuple;
-            Console.WriteLine($"{City}: {Population}");
-        }
-
         public static void InlineOutVariables(string number)
         {
             #region old
@@ -175,6 +157,24 @@ namespace KnowledgeMinutes
             //https://docs.microsoft.com/en-us/dotnet/csharp/tuples  --- 20 minutes to read
 
             #endregion
+        }
+        
+        public static void Discards(string number)
+        {
+            if (int.TryParse(number, out _))
+            {
+                Console.WriteLine($"{number} is a valid number");
+            }
+            else
+            {
+                Console.WriteLine($"{number} is not valid number");
+            }
+
+            //we can also discard tuple stuff when deconstructions
+            var complexTuple = (City: "Dresden", State: "Sachsen", Population: 554649, Language: "german");
+            //deconstruct but i dont need most of the stuff
+            var (City, _, Population, _) = complexTuple;
+            Console.WriteLine($"{City}: {Population}");
         }
 
         public static void StringLiteralForNumbers()

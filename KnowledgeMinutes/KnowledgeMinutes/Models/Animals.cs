@@ -10,6 +10,12 @@ namespace KnowledgeMinutes.Models
         }
 
         public abstract float Weight { get; set; }
+        public abstract AnimalType Type { get; set; }
+
+        public void Deconstruct(out float weight)
+        {
+            weight = this.Weight;
+        }
     }
 
     public class Dog : Animal
@@ -20,6 +26,7 @@ namespace KnowledgeMinutes.Models
         }
 
         public override float Weight { get; set; } = 20;
+        public override AnimalType Type { get; set; } = AnimalType.Mammal;
     }
 
     public class Cat : Animal
@@ -30,6 +37,7 @@ namespace KnowledgeMinutes.Models
         }
 
         public override float Weight { get; set; } = 5;
+        public override AnimalType Type { get; set; } = AnimalType.Mammal;
     }
 
     public class Bat : Animal
@@ -40,11 +48,12 @@ namespace KnowledgeMinutes.Models
         }
 
         public override float Weight { get; set; } = 0.5f;
+        public override AnimalType Type { get; set; } = AnimalType.Mammal;
     }
 
     public enum AnimalType
     {
-        Rept = 0,
+        Reptile = 0,
         Mammal = 1
     }
 }

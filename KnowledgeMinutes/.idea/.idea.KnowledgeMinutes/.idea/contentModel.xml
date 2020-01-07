@@ -10,10 +10,13 @@
         <e p="CSharp70.cs" t="Include" />
         <e p="Csharp71.cs" t="Include" />
         <e p="Csharp72.cs" t="Include" />
+        <e p="Csharp73.cs" t="Include" />
+        <e p="Csharp80.cs" t="Include" />
         <e p="KnowledgeMinutes.csproj" t="IncludeRecursive" />
         <e p="Models" t="Include">
           <e p="Animals.cs" t="Include" />
           <e p="GenericClass.cs" t="Include" />
+          <e p="Rainbow.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
