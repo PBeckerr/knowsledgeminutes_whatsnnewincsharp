@@ -13,20 +13,6 @@ namespace KnowledgeMinutes
         //IDisposable support for ref structs
         //nullable reference 
 
-        //Default method implementation in interfaces
-        //can also be used to extend/introduce function to a already shipped interface
-        public interface IAdd
-        {
-            public int Add1 { get; set; }
-            public int Add2 { get; set; }
-
-            public int Add()
-            {
-                return this.Add1 + this.Add2;
-            }
-        }
-
-
         public static void PatternMatchingSwitch()
         {
             #region old
@@ -182,6 +168,19 @@ namespace KnowledgeMinutes
 
             Console.WriteLine(string.Join(" ", numbers));  // output: 17 17
             Console.WriteLine(i);  // output: 17
+        }
+        
+        //Default method implementation in interfaces
+        //can also be used to extend/introduce function to a already shipped interface
+        public interface IAdd
+        {
+            public int Add1 { get; set; }
+            public int Add2 { get; set; }
+
+            public int Add()
+            {
+                return this.Add1 + this.Add2;
+            }
         }
         
         public class AddImpl : IAdd
