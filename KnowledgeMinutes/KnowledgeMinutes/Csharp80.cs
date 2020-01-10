@@ -142,7 +142,8 @@ namespace KnowledgeMinutes
             Console.WriteLine();
             
             //ranges
-            var subArray = array[..3];
+            var r = ..3;
+            var subArray = array[r];
             foreach (var i in subArray)
             {
                 Console.WriteLine(i);

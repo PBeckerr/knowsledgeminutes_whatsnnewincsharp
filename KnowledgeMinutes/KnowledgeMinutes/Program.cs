@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace KnowledgeMinutes
+﻿namespace KnowledgeMinutes
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Csharp80.IndicesAndRanges();
         }

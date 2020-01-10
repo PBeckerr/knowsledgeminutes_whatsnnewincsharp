@@ -85,52 +85,6 @@ namespace KnowledgeMinutes
             }
         }
 
-        public static void RefReturnAndLocalFunction()
-        {
-            int[,] matrix = new int[7, 7];
-            for (int i = 0; i < matrix.GetLength(0); i++)
-            {
-                for (int j = 0; j < matrix.GetLength(1); j++)
-                {
-                    matrix[i, j] = int.Parse($"{i}{j}");
-                }
-            }
-
-            Console.WriteLine("Without reference to value");
-            var itemWithoutRef = findWithoutRef(matrix, (val) => val == 42);
-            Console.WriteLine(itemWithoutRef);
-            itemWithoutRef = 24;
-            Console.WriteLine(matrix[4, 2]);
-
-            Console.WriteLine("With reference to value");
-            ref var item = ref findWithRef(matrix, (val) => val == 42);
-            Console.WriteLine(item);
-            item = 24;
-            Console.WriteLine(matrix[4, 2]);
-
-            #region local functions
-
-            ref int findWithRef(int[,] matrix, Func<int, bool> predicate)
-            {
-                for (int i = 0; i < matrix.GetLength(0); i++)
-                for (int j = 0; j < matrix.GetLength(1); j++)
-                    if (predicate(matrix[i, j]))
-                        return ref matrix[i, j];
-                throw new InvalidOperationException("Not found");
-            }
-
-            static int findWithoutRef(int[,] matrix, Func<int, bool> predicate)
-            {
-                for (int i = 0; i < matrix.GetLength(0); i++)
-                for (int j = 0; j < matrix.GetLength(1); j++)
-                    if (predicate(matrix[i, j]))
-                        return matrix[i, j];
-                throw new InvalidOperationException("Not found");
-            }
-
-            #endregion
-        }
-
         public static void RuntimeSupportForTuples()
         {
             #region old
@@ -175,6 +129,52 @@ namespace KnowledgeMinutes
             //deconstruct but i dont need most of the stuff
             var (City, _, Population, _) = complexTuple;
             Console.WriteLine($"{City}: {Population}");
+        }
+        
+        public static void RefReturnAndLocalFunction()
+        {
+            int[,] matrix = new int[7, 7];
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    matrix[i, j] = int.Parse($"{i}{j}");
+                }
+            }
+
+            Console.WriteLine("Without reference to value");
+            var itemWithoutRef = findWithoutRef(matrix, (val) => val == 42);
+            Console.WriteLine(itemWithoutRef);
+            itemWithoutRef = 24;
+            Console.WriteLine(matrix[4, 2]);
+
+            Console.WriteLine("With reference to value");
+            ref var item = ref findWithRef(matrix, (val) => val == 42);
+            Console.WriteLine(item);
+            item = 24;
+            Console.WriteLine(matrix[4, 2]);
+
+            #region local functions
+
+            ref int findWithRef(int[,] matrix, Func<int, bool> predicate)
+            {
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                    if (predicate(matrix[i, j]))
+                        return ref matrix[i, j];
+                throw new InvalidOperationException("Not found");
+            }
+
+            static int findWithoutRef(int[,] matrix, Func<int, bool> predicate)
+            {
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                    if (predicate(matrix[i, j]))
+                        return matrix[i, j];
+                throw new InvalidOperationException("Not found");
+            }
+
+            #endregion
         }
 
         public static void StringLiteralForNumbers()
