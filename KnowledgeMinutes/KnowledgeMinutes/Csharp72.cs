@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace KnowledgeMinutes
 {
+    /// <summary>
+    /// 2017
+    /// </summary>
     public class Csharp72
     {
         //High Performance changes to avoid unsafe code while maintaining good performance

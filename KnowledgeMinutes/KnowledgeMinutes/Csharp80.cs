@@ -7,6 +7,9 @@ using KnowledgeMinutes.Models;
 
 namespace KnowledgeMinutes
 {
+    /// <summary>
+    /// Sep 2019, depends now on .NET Core version
+    /// </summary>
     public class Csharp80
     {
         //readonly modifier for properties in structs, more granular than marking the whole struct as readonly

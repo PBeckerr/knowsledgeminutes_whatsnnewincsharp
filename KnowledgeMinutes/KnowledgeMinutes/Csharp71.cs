@@ -5,6 +5,9 @@ using KnowledgeMinutes.Models;
 
 namespace KnowledgeMinutes
 {
+    /// <summary>
+    /// 2017
+    /// </summary>
     public static class Csharp71
     {
         public static void InferedTupleNames()

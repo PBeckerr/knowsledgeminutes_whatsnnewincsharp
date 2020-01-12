@@ -1,5 +1,8 @@
 ﻿namespace KnowledgeMinutes
 {
+    /// <summary>
+    /// Mid 2018
+    /// </summary>
     public static class Csharp73
     {
         // more perf stuff....

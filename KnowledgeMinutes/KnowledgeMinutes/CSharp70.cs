@@ -7,6 +7,9 @@ using KnowledgeMinutes.Models;
 
 namespace KnowledgeMinutes
 {
+    /// <summary>
+    /// Released with VS 2017, March 2017
+    /// </summary>
     public static class CSharp70
     {
         public static void InlineOutVariables(string number)
