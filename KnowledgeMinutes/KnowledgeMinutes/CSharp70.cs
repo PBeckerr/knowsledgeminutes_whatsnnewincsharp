@@ -27,13 +27,9 @@ namespace KnowledgeMinutes
             #region new
 
             if (int.TryParse(number, out var answer))
-            {
                 Console.WriteLine(answer);
-            }
             else
-            {
                 Console.WriteLine("Could not parse input");
-            }
 
             #endregion
         }

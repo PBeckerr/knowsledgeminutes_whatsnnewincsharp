@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using KnowledgeMinutes.Models;
 // ReSharper disable All
@@ -140,7 +141,10 @@ namespace KnowledgeMinutes
             };
 
             Console.WriteLine(array[^1]); //last element
-            Console.WriteLine(array[^2]); //element before last
+            Console.WriteLine();
+            
+            var index = ^2; //element before last
+            Console.WriteLine(array[index]); 
 
             Console.WriteLine();
             
@@ -156,6 +160,14 @@ namespace KnowledgeMinutes
 
             var subArray2 = array[^2..];
             foreach (var i in subArray2)
+            {
+                Console.WriteLine(i);
+            }
+            
+            Console.WriteLine();
+
+            var subArray3 = array[2..^1];
+            foreach (var i in subArray3)
             {
                 Console.WriteLine(i);
             }
