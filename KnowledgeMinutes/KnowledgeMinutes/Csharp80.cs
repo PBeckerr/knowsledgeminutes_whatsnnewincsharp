@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -42,8 +43,6 @@ namespace KnowledgeMinutes
                     default:
                         throw new ArgumentException("invalid enum value", nameof(colorBand));
                 }
-
-                ;
             }
 
             #endregion
@@ -99,22 +98,31 @@ namespace KnowledgeMinutes
         {
             #region old
 
-            using (var stream = new MemoryStream())
-            using (var innerStream = new MemoryStream())
+            using (var sqlCon = new SqlConnection())
             {
-                //stuff
+                sqlCon.Open();
+                using (var transaction = sqlCon.BeginTransaction())
+                {
+                    using (var command = sqlCon.CreateCommand())
+                    {
+                        //stuff   
+                    }
+                }  
             }
-            //disposed here
+
 
             #endregion
 
             #region new
 
-            using var memStream = new MemoryStream();
-            using var memInnerStream = new MemoryStream();
+            using var con = new SqlConnection();
+            con.Open();
+            using var sqlTransaction = con.BeginTransaction();
+            using var sqlCommand = con.CreateCommand();
+            //stuff   
 
             #endregion
-        } //memStream & memInnerStream here disposed
+        } //disposed here
 
         public static async Task AsyncStreams()
         {
@@ -123,7 +131,7 @@ namespace KnowledgeMinutes
                 Console.WriteLine(number);
             }
             
-            static async System.Collections.Generic.IAsyncEnumerable<int> GenerateSequence()
+            static async IAsyncEnumerable<int> GenerateSequence()
             {
                 for (int i = 0; i < 20; i++)
                 {
@@ -203,6 +211,18 @@ namespace KnowledgeMinutes
         {
             public int Add1 { get; set; }
             public int Add2 { get; set; }
+            
+            
+        }
+
+        public static void DefaultInterfaces()
+        {
+            IAdd add = new AddImpl
+            {
+                Add1 = 10,
+                Add2 = 10
+            };
+            Console.WriteLine(add.Add());
         }
     }
 }
