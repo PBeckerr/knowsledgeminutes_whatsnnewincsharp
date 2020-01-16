@@ -1,10 +1,13 @@
-﻿namespace KnowledgeMinutes
+﻿using System.Threading.Tasks;
+
+namespace KnowledgeMinutes
 {
     internal class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            Csharp80.DefaultInterfaces();
+            await Task.Delay(400);
+            CSharp70.RefReturnAndLocalFunction();
         }
     }
 }
