@@ -214,7 +214,7 @@ namespace KnowledgeMinutes
 
         public static void DefaultInterfaces()
         {
-            var add = new AddImpl
+            IAdd add = new AddImpl
             {
                 Add1 = 10,
                 Add2 = 10
