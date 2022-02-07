@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using KnowledgeMinutes.Models;
 // ReSharper disable All
@@ -41,8 +43,6 @@ namespace KnowledgeMinutes
                     default:
                         throw new ArgumentException("invalid enum value", nameof(colorBand));
                 }
-
-                ;
             }
 
             #endregion
@@ -98,22 +98,31 @@ namespace KnowledgeMinutes
         {
             #region old
 
-            using (var stream = new MemoryStream())
-            using (var innerStream = new MemoryStream())
+            using (var sqlCon = new SqlConnection())
             {
-                //stuff
+                sqlCon.Open();
+                using (var transaction = sqlCon.BeginTransaction())
+                {
+                    using (var command = sqlCon.CreateCommand())
+                    {
+                        //stuff   
+                    }
+                }  
             }
-            //disposed here
+
 
             #endregion
 
             #region new
 
-            using var memStream = new MemoryStream();
-            using var memInnerStream = new MemoryStream();
+            using var con = new SqlConnection();
+            con.Open();
+            using var sqlTransaction = con.BeginTransaction();
+            using var sqlCommand = con.CreateCommand();
+            //stuff   
 
             #endregion
-        } //memStream & memInnerStream here disposed
+        } //disposed here
 
         public static async Task AsyncStreams()
         {
@@ -122,7 +131,7 @@ namespace KnowledgeMinutes
                 Console.WriteLine(number);
             }
             
-            static async System.Collections.Generic.IAsyncEnumerable<int> GenerateSequence()
+            static async IAsyncEnumerable<int> GenerateSequence()
             {
                 for (int i = 0; i < 20; i++)
                 {
@@ -138,13 +147,17 @@ namespace KnowledgeMinutes
             {
                 1, 2, 3, 4, 5, 6, 7, 8
             };
+            Console.WriteLine($"Source: {string.Join(",", array)}");
 
-            Console.WriteLine(array[^1]); //last element
-            Console.WriteLine(array[^2]); //element before last
+            Console.WriteLine("Last element");
+            Console.WriteLine(array[^1]);
 
-            Console.WriteLine();
+            Console.WriteLine("Element before last");
+            var index = ^2;
+            Console.WriteLine(array[index]); 
             
-            //ranges
+            
+            Console.WriteLine("Range from first to third");
             var r = ..3;
             var subArray = array[r];
             foreach (var i in subArray)
@@ -152,10 +165,16 @@ namespace KnowledgeMinutes
                 Console.WriteLine(i);
             }
 
-            Console.WriteLine();
-
+            Console.WriteLine("Range from 2 before last to end");
             var subArray2 = array[^2..];
             foreach (var i in subArray2)
+            {
+                Console.WriteLine(i);
+            }
+            
+            Console.WriteLine("Range from third to 1 before last");
+            var subArray3 = array[2..^1];
+            foreach (var i in subArray3)
             {
                 Console.WriteLine(i);
             }
@@ -191,6 +210,16 @@ namespace KnowledgeMinutes
         {
             public int Add1 { get; set; }
             public int Add2 { get; set; }
+        }
+
+        public static void DefaultInterfaces()
+        {
+            IAdd add = new AddImpl
+            {
+                Add1 = 10,
+                Add2 = 10
+            };
+            Console.WriteLine(add.Add());
         }
     }
 }
