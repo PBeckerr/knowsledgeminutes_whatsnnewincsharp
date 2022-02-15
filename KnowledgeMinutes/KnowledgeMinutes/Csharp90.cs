@@ -88,6 +88,7 @@ namespace KnowledgeMinutes
             {
                 FirstName = "Maxim"
             };
+            Console.WriteLine();
             Console.WriteLine(customerRecord3.ToString());
         }
 
@@ -95,11 +96,11 @@ namespace KnowledgeMinutes
 
         #region Pattern matching enhancements
 
-        public static bool IsLetterOld(this char c) =>
-            c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z';
+        public static bool IsLetterOld(this char charToCheck) =>
+            charToCheck >= 'a' && charToCheck <= 'z' || charToCheck >= 'A' && charToCheck <= 'Z';
         
-        public static bool IsLetterNew(this char c) =>
-            c is >= 'a' and <= 'z' or >= 'A' and <= 'Z';
+        public static bool IsLetterNew(this char charToCheck) =>
+            charToCheck is >= 'a' and <= 'z' or >= 'A' and <= 'Z';
 
         //Csharp90.PatternWithObject(new CustomerRecord(Guid.NewGuid(), "Max", "Mustermann", "+4915145721"));
         public static void PatternWithObject(object obj)
@@ -127,7 +128,7 @@ namespace KnowledgeMinutes
         {
             SectionCustomers = new()
             {
-                {Guid.NewGuid(), new List<Customer>()}
+                {new(), new List<Customer>()}
             };
         }
 
@@ -135,7 +136,7 @@ namespace KnowledgeMinutes
 
         #region Code Generator
 
-        // Ask OKE if you want to know about that
+        // Ask OKE if you want to know more about that
         // Samples where its used:
         //        Json: https://devblogs.microsoft.com/dotnet/try-the-new-system-text-json-source-generator/
         //        gRPC: https://grpc.io/docs/languages/csharp/quickstart/

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using KnowledgeMinutes;
 
-//Top-level statements
-CsharpN100.CallerArgumentExpression();
+Csharp90.Records();
+// Csharp90.PatternWithObject(new Csharp90.Customer());
+
+// CsharpN100.CallerArgumentExpression();
+// CsharpN100.LambdaImprovments();
