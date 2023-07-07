@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.IO;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 using KnowledgeMinutes.Models;
 // ReSharper disable All
 
@@ -107,7 +102,7 @@ namespace KnowledgeMinutes
                     {
                         //stuff   
                     }
-                }  
+                }
             }
 
 
@@ -130,7 +125,7 @@ namespace KnowledgeMinutes
             {
                 Console.WriteLine(number);
             }
-            
+
             static async IAsyncEnumerable<int> GenerateSequence()
             {
                 for (int i = 0; i < 20; i++)
@@ -154,8 +149,8 @@ namespace KnowledgeMinutes
 
             Console.WriteLine("Element before last");
             var index = ^2;
-            Console.WriteLine(array[index]); 
-            
+            Console.WriteLine(array[index]);
+
             
             Console.WriteLine("Range from first to third");
             var r = ..3;
@@ -171,7 +166,7 @@ namespace KnowledgeMinutes
             {
                 Console.WriteLine(i);
             }
-            
+
             Console.WriteLine("Range from third to 1 before last");
             var subArray3 = array[2..^1];
             foreach (var i in subArray3)
@@ -192,7 +187,7 @@ namespace KnowledgeMinutes
             Console.WriteLine(string.Join(" ", numbers));  // output: 17 17
             Console.WriteLine(i);  // output: 17
         }
-        
+
         //Default method implementation in interfaces
         //can also be used to extend/introduce function to a already shipped interface
         public interface IAdd
@@ -205,7 +200,7 @@ namespace KnowledgeMinutes
                 return this.Add1 + this.Add2;
             }
         }
-        
+
         public class AddImpl : IAdd
         {
             public int Add1 { get; set; }

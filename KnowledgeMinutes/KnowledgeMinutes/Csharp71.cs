@@ -1,5 +1,4 @@
-﻿using System;
-using KnowledgeMinutes.Models;
+﻿using KnowledgeMinutes.Models;
 
 // ReSharper disable All
 

@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 
 namespace KnowledgeMinutes;
 
-//requires NET6
+//requires NET6, Released November, 2021
 //First Feature is file scoped namespace, YE!
 //Honorable mentions:
 //  Record structs
@@ -23,7 +21,7 @@ public static class CsharpN100
         public string Name { get; set; }
         public Person Manager { get; set; }
     }
-    
+
     public class Person
     {
         public string Name { get; set; }
@@ -39,7 +37,7 @@ public static class CsharpN100
             {
                 Console.WriteLine(department);
             }
-            
+
             //new
             if (department is {Manager.Name: "Max"})
             {

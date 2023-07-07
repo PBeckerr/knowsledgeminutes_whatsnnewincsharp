@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using KnowledgeMinutes.Models;
+﻿using KnowledgeMinutes.Models;
 
 // ReSharper disable All
 
@@ -111,7 +108,7 @@ namespace KnowledgeMinutes
 
             #endregion
         }
-        
+
         public static void Discards(string number)
         {
             if (int.TryParse(number, out _))
@@ -129,7 +126,7 @@ namespace KnowledgeMinutes
             var (City, _, Population, _) = complexTuple;
             Console.WriteLine($"{City}: {Population}");
         }
-        
+
         public static void RefReturnAndLocalFunction()
         {
             int[,] matrix = new int[7, 7];
@@ -213,7 +210,7 @@ namespace KnowledgeMinutes
                 get => label;
                 set => this.label = value ?? "Default label";
             }
-            
+
             // new throw expression
             public string ThrowShowCase
             {

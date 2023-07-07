@@ -10,6 +10,6 @@
         // You can reassign ref local variables.
         // You can use initializers on stackalloc arrays.
         // You can use fixed statements with any type that supports a pattern.
-        // You can use additional generic constraints.
+        // You can use additional generic constraints. : unmanaged, System.Enum and System.Delegate.
     }
 }

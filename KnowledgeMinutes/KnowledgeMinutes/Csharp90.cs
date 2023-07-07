@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace KnowledgeMinutes
+﻿namespace KnowledgeMinutes
 {
-    //NET5 and later
+    //NET5 and later. Released November, 2020
     public static class Csharp90
     {
         #region records
@@ -44,6 +41,7 @@ namespace KnowledgeMinutes
         // Concise syntax for creating a reference type with immutable properties
         //     Behavior useful for a data-centric reference type:
         //     Value equality
+        //     Immutable
         //     Concise syntax for nondestructive mutation
         //     Built-in formatting for display
         //     Support for inheritance hierarchies
@@ -59,7 +57,7 @@ namespace KnowledgeMinutes
                 FirstName = "Max",
                 LastName = "Mustermann",
                 Telephone = "+4915145721"
-            };            
+            };
             var customer2 = new Customer
             {
                 Id = customerId,
@@ -82,7 +80,7 @@ namespace KnowledgeMinutes
             Console.WriteLine("Customerrecords are == {0}", customerRecord2 == customerRecord);
             Console.WriteLine("Customerrecords are equal {0}", customerRecord2.Equals(customerRecord));
             Console.WriteLine("Customerrecords are ReferenceEquals {0}", ReferenceEquals(customerRecord, customerRecord2));
-            
+
             //with
             var customerRecord3 = customerRecord with
             {
@@ -98,7 +96,7 @@ namespace KnowledgeMinutes
 
         public static bool IsLetterOld(this char charToCheck) =>
             charToCheck >= 'a' && charToCheck <= 'z' || charToCheck >= 'A' && charToCheck <= 'Z';
-        
+
         public static bool IsLetterNew(this char charToCheck) =>
             charToCheck is >= 'a' and <= 'z' or >= 'A' and <= 'Z';
 
@@ -128,7 +126,7 @@ namespace KnowledgeMinutes
         {
             SectionCustomers = new()
             {
-                {new(), new List<Customer>()}
+                {new Guid(), new List<Customer>()}
             };
         }
 

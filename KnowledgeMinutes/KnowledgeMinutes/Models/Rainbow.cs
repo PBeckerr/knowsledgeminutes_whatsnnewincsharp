@@ -10,7 +10,7 @@
         Indigo,
         Violet
     }
-    
+
     internal class RGBColor
     {
         public int Red { get; }

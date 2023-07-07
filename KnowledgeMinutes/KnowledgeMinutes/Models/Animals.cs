@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace KnowledgeMinutes.Models
+﻿namespace KnowledgeMinutes.Models
 {
     public abstract class Animal
     {
